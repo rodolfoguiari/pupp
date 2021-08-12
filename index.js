@@ -43,9 +43,8 @@ server.get('/robo', (req, res) => {
 	res.send(`<button type="button" onclick="document.location.assign('/')">VOLTAR</button>`)
 
 })
-/*
+
 var port = process.env.PORT || 3000;
 server.listen(port, () => {
 	console.log('Servidor rodando na porta: '+port)
 })
-*/
