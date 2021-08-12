@@ -38,21 +38,21 @@ async function testeHttp() {
 }
 
 server.get('/', (req, res) => {
-	res.send(`<button type="button" onclick="document.location.assign('/robo')">INICIAR ROBO</button>`)
+	res.send(`<button type="button" onclick="document.location.assign('/robo')">SCREENSHOT</button>`)
 })
 
 server.get('/favicon.ico', (req, res) => {
-	res.send(`<button type="button" onclick="document.location.assign('/robo')">INICIAR ROBO</button>`)
+	res.send(`<button type="button" onclick="document.location.assign('/robo')">SCREENSHOT</button>`)
 })
 
 server.get('/robo', (req, res) => {
 
 	testeHttp()
-	res.send(`<button type="button" onclick="document.location.assign('/')">VOLTAR</button>`)
+	res.send(`<button type="button" onclick="document.location.assign('/')">BACK</button>`)
 
 })
 
 var port = process.env.PORT || 3000;
 server.listen(port, () => {
-	console.log('Servidor rodando na porta: '+port)
+	console.log('Server in port: '+port)
 })
