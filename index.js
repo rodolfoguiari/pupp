@@ -9,19 +9,27 @@ async function testeHttp() {
 		const chromeOptions = {
 	    headless: true,
 	    args: [
-	        	"--no-sandbox"
+	        	'--no-sandbox',
+	        	'--disable-setuid-sandbox',
+        		'--disable-dev-shm-usage'
 	    	],
 		};
 
+		console.log('Instancia Puppeteer');
 		const browser = await puppeteer.launch(chromeOptions);
 
-	  const page = await browser.newPage();
-	  await page.setViewport({ width: 1280, height: 800 })
-	  await page.goto('https://sistematizandolp.com.br');
+		console.log('Abre navegador');
+		const page = await browser.newPage();
+		await page.setViewport({ width: 1280, height: 800 })
 
-	  await page.screenshot({ path: 'print.png' });
+		console.log('Acessa pagina sistematizandolp.com.br');
+		await page.goto('https://sistematizandolp.com.br');
 
-	  await browser.close();
+		console.log('Tira um printscreen do site');
+		await page.screenshot({ path: 'print.png' });
+
+		console.log('Fecha o navegador e FIM !');
+		await browser.close();
 
 	} catch(err) {
 		console.error(err);
